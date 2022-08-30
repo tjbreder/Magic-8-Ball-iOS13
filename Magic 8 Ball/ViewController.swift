@@ -10,9 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let ballArray = [#imageLiteral(resourceName: "ball2"),#imageLiteral(resourceName: "ball2"),#imageLiteral(resourceName: "ball3.png"),#imageLiteral(resourceName: "ball4.png"),#imageLiteral(resourceName: "ball5.png")]
+        let Respostas = [#imageLiteral(resourceName: "ball1"), #imageLiteral(resourceName: "ball2"), #imageLiteral(resourceName: "ball3"), #imageLiteral(resourceName: "ball4"), #imageLiteral(resourceName: "ball5")]// possiveis respostas
 
+    @IBOutlet weak var Bola: UIImageView! // imagem da bola inicial
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        Bola.image = #imageLiteral(resourceName: "ball1") //escolha da imagem inicial padrão
+    }
     
-    @IBOutlet weak var askMe: UIButton!
+    @IBAction func AskMe(_ sender: UIButton)  //aperto do botão
+    {
+        let RespostaEscolhida = Int.random(in: 0...4) // sorteio de respostas
+        Bola.image = Respostas [RespostaEscolhida] //mostra a imagem da bola escolhida
+    }
+    
 }
-
